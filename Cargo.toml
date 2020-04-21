@@ -1,0 +1,25 @@
+[package]
+name = "test-protobuf-ttrpc"
+version = "0.1.0"
+authors = ["James O. D. Hunt <jamesodhunt@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "2.33.0"
+slog = { version = "2.5.2", feature = "dynamic-keys" }
+slog-term = "2.4.1"
+slog-async = "2.3.0"
+slog-json = "2.3.0"
+slog-syslog = "0.11.0"
+slog-scope = "4.1.2"
+protobuf = "2.8.1"
+futures = "0.1.29"
+vsock = "0.1.5"
+nix = "0.15.0"
+libc = "0.2.68"
+
+# FIXME:
+#ttrpc = "0.2.1"
+ttrpc = { path = "/home/james/git/rust/ttrpc-rust" }
