@@ -92,7 +92,7 @@ unix-client:
 	cargo run -v -- --server-uri $(UNIX_SERVER_URI) --abstract client --commands "SayHello world" --commands "Shutdown"
 
 vsock-client:
-	cargo run -v -- --server-uri $(VSOCK_CLIENT_URI) --abstract client --commands "SayHello world"
+	cargo run -v -- --server-uri $(VSOCK_CLIENT_URI) --abstract client --crate-for-vsock=nix --commands "SayHello world" --commands "Shutdown"
 
 check:
 	cargo fmt --all -- --check
