@@ -58,7 +58,6 @@ impl<'a> MyService for HelloService {
         info!(sl!(), "requesting shutdown");
 
         let result = tx.send(true);
-        let _ = close(ctx.fd);
 
         info!(sl!(), "requested shutdown"; "result" => format!("{:?}", result));
 
