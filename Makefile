@@ -82,6 +82,11 @@ build: generate-service build-driver
 client: build unix-client
 server: build unix-server
 
+CLIENT_COMMANDS = \
+    --commands "SayHello world" \
+    --commands "SayHello world" \
+    --commands "Shutdown"
+
 unix-server:
 	cargo run -v -- --server-uri $(UNIX_SERVER_URI) server
 
@@ -89,10 +94,10 @@ vsock-server:
 	cargo run -v -- --server-uri $(VSOCK_SERVER_URI) server
 
 unix-client:
-	cargo run -v -- --server-uri $(UNIX_SERVER_URI) --abstract client --commands "SayHello world" --commands "Shutdown"
+	cargo run -v -- --server-uri $(UNIX_SERVER_URI) --abstract client $(CLIENT_COMMANDS)
 
 vsock-client:
-	cargo run -v -- --server-uri $(VSOCK_CLIENT_URI) --abstract client --crate-for-vsock=nix --commands "SayHello world" --commands "Shutdown"
+	cargo run -v -- --server-uri $(VSOCK_CLIENT_URI) --abstract client --crate-for-vsock=nix $(CLIENT_COMMANDS)
 
 check:
 	cargo fmt --all -- --check
